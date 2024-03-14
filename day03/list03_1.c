@@ -27,6 +27,17 @@ void rear_addNode(node* pnode, int pdata) // 후위삽입
    pnode->next = newNode;
  }
 
+void showNode(node* pnode)      // 출력함수
+{
+    node* curr = pnode->next;
+
+    while(curr != NULL)
+    {
+    printf("%d\n", curr->data);
+    curr = curr->next;
+    }
+}
+
 void main()
 {
 	node* head = (node*)malloc(sizeof(node));
@@ -37,17 +48,18 @@ void main()
 	rear_addNode(head, 30); 
 	rear_addNode(head, 40);
 	pre_addNode(head, 50);
-	
 	node* curr = head->next; 
+    showNode(head);
+	/*
 	printf("*****노드 생성*****\n");
 	while(curr != NULL)
 	{
 		printf("%d\n", curr->data);
 		curr = curr->next; 
 	} 
+	*/
 	
 	curr = head->next;
-	
 	printf("*****노드 삭제*****\n");
 	while(curr != NULL)
 	{

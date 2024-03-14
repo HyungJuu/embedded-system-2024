@@ -74,3 +74,32 @@
 		```
 		
 ## 3일차
+- 전위삽입
+
+```C
+void pre_addNode(node* pnode, int _data)        // 전위삽입
+{
+	node* newNode = (node*)malloc(sizeof(node));
+	newNode->data = _data;
+	newNode->next = pnode->next;
+	pnode->next = newNode;
+}
+
+```
+
+- 후위삽입
+
+```C
+void rear_addNode(node* pnode, int pdata) // 후위삽입
+ {
+   node* newNode = (node*)malloc(sizeof(node));
+   newNode->data = pdata;
+   newNode->next = NULL;
+
+   while(pnode->next != NULL)
+   {
+     pnode = pnode->next;
+   }
+   pnode->next = newNode;
+ }
+```
