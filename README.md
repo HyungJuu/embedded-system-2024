@@ -49,21 +49,20 @@
 	
 - 기본 명령어(추가)
 	- <초록색은 실행파일>
-	- gcc : 컴파일
-		-> 형식 : gcc -o 만들실행파일명 소스파일명
-		-> ex) gcc -o test01 test01.c => 소스파일 test01.c의 실행파일을 test01 이라는 이름으로 생성
-		- gcc test01.c => a.out 이라는 기본적인 실행파일 생성(출력(./a.out)은 동일하게 됨)
+	- gcc : 컴파일  
+		&rarr; 형식 : gcc -o 만들실행파일명 소스파일명  
+		&rarr; ex) gcc -o test01 test01.c --> 소스파일 test01.c의 실행파일을 test01 이라는 이름으로 생성  
+		- gcc test01.c  -->  a.out 이라는 기본적인 실행파일 생성(출력(./a.out)은 동일하게 됨)
 	- ./ : 출력
-	
-	- mv : 파일이동, 수정
-		-> ex) mv test01.c test02.c => test01.c를 test02.c로 수정(변경)
-	- cp : 파일 복사
-		-> ex) cp test03.c test.c => test.c를 복사하여 test03.c를 생성
+	- mv : 파일이동, 수정  
+		&rarr; ex) mv test01.c test02.c  -->  test01.c를 test02.c로 수정(변경)
+	- cp : 파일 복사  
+		&rarr; ex) cp test03.c test.c  -->  test.c를 복사하여 test03.c를 생성
 		
 - 입력과 출력
 	- printf : 출력
 	- scanf : 입력
-		-> 
+ 
 		```C
 		void main()
 		{
@@ -108,8 +107,8 @@
 	```
 	
 	- 노드 추가(전위, 후위)
-		- 전위삽입 
-			-> 연결리스트가 비어있으면(NULL) 새로 생성한 노드를 헤드노드 앞에 연결하고 새노드가 헤드로 지정됨
+		- 전위삽입  
+			&rarr; 연결리스트가 비어있으면(NULL) 새로 생성한 노드를 헤드노드 앞에 연결하고 새노드가 헤드로 지정됨
 		
 		![전위](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/%EC%A0%84%EC%9C%84%EC%82%BD%EC%9E%85.png)
 
@@ -125,8 +124,8 @@
 
 		```
 		
-		- 후위삽입 
-			-> 연결리스트가 비어있지 않으면(!NULL) 새로 생성한 노드를 테일노드 뒤에 연결
+		- 후위삽입  
+			&rarr; 연결리스트가 비어있지 않으면(!NULL) 새로 생성한 노드를 테일노드 뒤에 연결
 		
 		![후위](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/%ED%9B%84%EC%9C%84%EC%82%BD%EC%9E%85.png)
 		
@@ -150,15 +149,14 @@
 ## 4일차
 - 연결리스트 이어서
 	- 노드 삭제
-		- 헤드노드를 삭제할 경우
-			-> 헤드노드를 헤드노드 다음노드로 지정
-			-> 기존 헤드노드 삭제
+		- 헤드노드를 삭제할 경우  
+			&rarr; 헤드노드를 헤드노드 다음노드로 지정  
+			&rarr; 기존 헤드노드 삭제
 			
-		- 헤드노드가 아닌 노드를 삭제할 경우
-			-> 삭제할 노드를 찾아줄 변수를 하나 생성
-			-> 생성한 노드의 다음노드가 삭제할 노드가 아니면, 다음노드로 연결(이동)
-			-> 다음노드가 삭제할 노드면, 해당 노드를 삭제(소멸)
-				-> 삭제한 노드의 다음노드와 연결
+		- 헤드노드가 아닌 노드를 삭제할 경우  
+			&rarr; 삭제할 노드를 찾아줄 변수를 하나 생성  
+			&rarr; 생성한 노드의 다음노드가 삭제할 노드가 아니면, 다음노드로 연결(이동)  
+			&rarr; 다음노드가 삭제할 노드면, 해당 노드를 삭제(소멸) &rarr; 삭제한 노드의 다음노드와 연결
 			
 		![노드삭제설명](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/%EB%85%B8%EB%93%9C%EC%82%AD%EC%A0%9C%EC%84%A4%EB%AA%85.png)
 	
