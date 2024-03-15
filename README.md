@@ -79,7 +79,7 @@
 	- 각 노드에 저장된 다음 노드에 대한 주소값을 통해 연결
 	
 	![노드](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/node.png)
-	![노드설명](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024-2024/main/images/node01.png)
+	![노드설명](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/node01.png)
 	
 	- 연결리스트 노드
 	```C
@@ -108,7 +108,7 @@
 	- 노드 추가(전위, 후위)
 		- 전위삽입 -> 연결리스트가 비어있으면(NULL) 새로 생성한 노드를 헤드노드(맨앞) 앞에 연결하고 새노드가 헤드노드로 지정됨
 		
-		![전위](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024-2024/main/images/전위삽입.png)
+		![전위](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/%EC%A0%84%EC%9C%84%EC%82%BD%EC%9E%85.png)
 
 		```C
 		void pre_addNode(node* pnode, int _data)        // 전위삽입
@@ -124,7 +124,7 @@
 
 		- 후위삽입 -> 연결리스트가 비어있지 않으면(!NULL) 새로 생성한 노드를 테일노드(맨뒤) 뒤에 연결
 		
-		![후위](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024-2024/main/images/후위삽입.png)
+		![후위](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/%ED%9B%84%EC%9C%84%EC%82%BD%EC%9E%85.png)
 		
 
 		```C
@@ -141,7 +141,7 @@
 		   pnode->next = newNode;	// 테일노드 다음 노드에 새로생성한 노드를 연결
 		 }
 		```
-		
+		![후위삽입설명](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/%ED%9B%84%EC%9C%84%EC%82%BD%EC%9E%85%EC%84%A4%EB%AA%85.png)
 
 ## 4일차
 - 연결리스트 이어서
