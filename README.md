@@ -74,10 +74,12 @@
 		```
 		
 ## 3일차
-- 연결리스트
+- 연결리스트 (참고 : https://velog.io/@woukl22/posts)
 	- 서로 다른 물리적 위치에 있는 노드가 연결되어 만들어진 리스트
 	- 각 노드에 저장된 다음 노드에 대한 주소값을 통해 연결
-	
+		- 헤드(Head) -> 맨앞
+		- 테일(Tail) -> 맨뒤
+		
 	![노드](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/node.png)
 	![노드설명](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/node01.png)
 	
@@ -85,7 +87,7 @@
 	```C
 	typedef struct NODE	// 구조체
 	{
-		int data;		// int형 데이터를 저장하는 노드
+		int data;	// int형 데이터를 저장하는 노드
 		struct NODE *next;
 	}node;
 	```
@@ -94,26 +96,28 @@
 	```C
 	typedef struct	// 구조체
 	{
-		node *head;		// 멤버 : head
+		node *head;	// 멤버 : head
 	}headNode;
 	
 	headNode* createHeadNode(void)	// 입력 x 출력 o (type : headNode)
 	{
 		headNode* head = (headNode*)malloc(sizeof(headNode));	// 메모리공간을 동적 할당. (headNode*) : 형변환
-										// sizeof(headNode) : haedNode 자료형의 크기를 구한다.
+		// sizeof(headNode) : haedNode 자료형의 크기를 구한다.
 		return head;	// 출력이 있으므로 리턴 필수★★★
 	}
 	```
 	
 	- 노드 추가(전위, 후위)
-		- 전위삽입 -> 연결리스트가 비어있으면(NULL) 새로 생성한 노드를 헤드노드(맨앞) 앞에 연결하고 새노드가 헤드노드로 지정됨
+		- 전위삽입 
+			-> 연결리스트가 비어있으면(NULL) 새로 생성한 노드를 헤드노드 앞에 연결하고 새노드가 헤드로 지정됨
 		
 		![전위](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/%EC%A0%84%EC%9C%84%EC%82%BD%EC%9E%85.png)
 
 		```C
-		void pre_addNode(node* pnode, int _data)        // 전위삽입
+		void pre_addNode(node* pnode, int _data)	// 전위삽입
 		{
-			node* newNode = (node*)malloc(sizeof(node));	// 노드 생성. node크기만큼의 메모리 공간 동적 할당받아 포인터변수 newNode에 저장
+			node* newNode = (node*)malloc(sizeof(node));	// 노드 생성
+			// node크기만큼의 메모리공간을 동적 할당받아 포인터변수 newNode에 저장
 			newNode->data = _data;
 			newNode->next = pnode->next;
 			pnode->next = newNode;
@@ -121,8 +125,8 @@
 
 		```
 		
-
-		- 후위삽입 -> 연결리스트가 비어있지 않으면(!NULL) 새로 생성한 노드를 테일노드(맨뒤) 뒤에 연결
+		- 후위삽입 
+			-> 연결리스트가 비어있지 않으면(!NULL) 새로 생성한 노드를 테일노드 뒤에 연결
 		
 		![후위](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/%ED%9B%84%EC%9C%84%EC%82%BD%EC%9E%85.png)
 		
@@ -130,13 +134,13 @@
 		```C
 		void rear_addNode(node* pnode, int pdata) // 후위삽입
 		 {
-		   node* newNode = (node*)malloc(sizeof(node));		// 노드 생성
+		   node* newNode = (node*)malloc(sizeof(node));	// 노드 생성
 		   newNode->data = pdata;
 		   newNode->next = NULL;
 
-		   while(pnode->next != NULL)		// pnode의 다음값이 NULL일 때까지
+		   while(pnode->next != NULL)	// pnode의 다음값이 NULL일 때까지
 		   {
-			 pnode = pnode->next;	// pnode를 다음값으로 지정(이동)
+				pnode = pnode->next;	// pnode를 다음값으로 지정(이동)
 		   }
 		   pnode->next = newNode;	// 테일노드 다음 노드에 새로생성한 노드를 연결
 		 }
@@ -145,35 +149,11 @@
 
 ## 4일차
 - 연결리스트 이어서
-
-	- 출력함수
-	```C
-	typedef struct
-	{
-		node *head;
-	}headNode;
-
-	headNode* createHeadNode(void)
-	{
-		headNode* head = (headNode*)malloc(sizeof(headNode));
-		return head;
-	}
-	void showNode(headNode* pnode)      // 출력함수
-	{
-		node* curr = pnode->head;
-
-		while(curr != NULL)
-		{
-			printf("%d\n", curr->data);
-			curr = curr->next;
-		}
-	}
-	```
-
 	- 노드 삭제
 		- 헤드노드를 삭제할 경우
 			-> 헤드노드를 헤드노드 다음노드로 지정
 			-> 기존 헤드노드 삭제
+			
 		- 헤드노드가 아닌 노드를 삭제할 경우
 			-> 삭제할 노드를 찾아줄 변수를 하나 생성
 			-> 생성한 노드의 다음노드가 삭제할 노드가 아니면, 다음노드로 연결(이동)
@@ -183,14 +163,14 @@
 		![노드삭제설명](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/%EB%85%B8%EB%93%9C%EC%82%AD%EC%A0%9C%EC%84%A4%EB%AA%85.png)
 	
 	```C
-	void allFreeNode(headNode* pnode)   // 전체 메모리 해제
+	void allFreeNode(headNode* pnode)	// 전체 메모리 해제
 	{
 		node* curr = pnode->head; 
 
 		while(curr != NULL)
 		{
 			pnode->head = curr->next;
-			free(curr);		// free() : 힙영역에서 메모리공간 반환
+			free(curr);	// free() : 힙영역에서 메모리공간 반환
 			curr = pnode->head;
 		}
 	}
