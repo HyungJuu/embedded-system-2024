@@ -51,7 +51,7 @@ void showNode(headNode* pnode)      // 출력함수
     }
 }
 
-void allFreeNode(headNode* pnode)   // 전체 메모리 해체
+void allFreeNode(headNode* pnode)   // 전체 메모리 해제
 {
 	node* curr = pnode->head; 
 
@@ -61,7 +61,7 @@ void allFreeNode(headNode* pnode)   // 전체 메모리 해체
         free(curr);
         curr = pnode->head;
     }
-    free(pnode);
+    // free(pnode);
 }
 
 void main()
@@ -70,7 +70,7 @@ void main()
 	// head->next = NULL;
 	headNode* head = createHeadNode();
     
-	rear_addNode(head, 10); 
+	pre_addNode(head, 10); 
 	pre_addNode(head, 20); 
 	rear_addNode(head, 30); 
 	rear_addNode(head, 40);

@@ -74,34 +74,114 @@
 		```
 		
 ## 3일차
-- 전위삽입
+- 연결리스트
+	- 서로 다른 물리적 위치에 있는 노드가 연결되어 만들어진 리스트
+	- 각 노드에 저장된 다음 노드에 대한 주소값을 통해 연결
+	
+	![노드](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024-2024/main/images/node.png)
+	![노드설명](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024-2024/main/images/node01.png)
+	
+	- 연결리스트 노드
+	```C
+	typedef struct NODE	// 구조체
+	{
+		int data;		// int형 데이터를 저장하는 노드
+		struct NODE *next;
+	}node;
+	```
+	
+	- 노드 생성
+	```C
+	typedef struct	// 구조체
+	{
+		node *head;		// 멤버 : head
+	}headNode;
+	
+	headNode* createHeadNode(void)	// 입력 x 출력 o (type : headNode)
+	{
+		headNode* head = (headNode*)malloc(sizeof(headNode));	// 메모리공간을 동적 할당. (headNode*) : 형변환
+																// sizeof(headNode) : haedNode 자료형의 크기를 구한다.
+		return head;	// 출력이 있으므로 리턴 필수★★★
+	}
+	```
+	
+	- 노드 추가(전위, 후위)
+		- 전위삽입 -> 연결리스트가 비어있으면(NULL) 새로 생성한 노드를 헤드노드(맨앞) 앞에 연결하고 새노드가 헤드노드로 지정됨
+		
+		![전위](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024-2024/main/images/전위삽입.png)
 
-```C
-void pre_addNode(node* pnode, int _data)        // 전위삽입
-{
-	node* newNode = (node*)malloc(sizeof(node));
-	newNode->data = _data;
-	newNode->next = pnode->next;
-	pnode->next = newNode;
-}
+		```C
+		void pre_addNode(node* pnode, int _data)        // 전위삽입
+		{
+			node* newNode = (node*)malloc(sizeof(node));	// node크기만큼의 메모리 공간 동적 할당받아 포인터변수 newNode에 저장
+			newNode->data = _data;
+			newNode->next = pnode->next;
+			pnode->next = newNode;
+		}
 
-```
+		```
+		
 
-- 후위삽입
+		- 후위삽입 -> 연결리스트가 비어있지 않으면(!NULL) 새로 생성한 노드를 테일노드(맨뒤) 뒤에 연결
+		
+		![후위](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024-2024/main/images/후위삽입.png)
+		
 
-```C
-void rear_addNode(node* pnode, int pdata) // 후위삽입
- {
-   node* newNode = (node*)malloc(sizeof(node));
-   newNode->data = pdata;
-   newNode->next = NULL;
+		```C
+		void rear_addNode(node* pnode, int pdata) // 후위삽입
+		 {
+		   node* newNode = (node*)malloc(sizeof(node));
+		   newNode->data = pdata;
+		   newNode->next = NULL;
 
-   while(pnode->next != NULL)
-   {
-     pnode = pnode->next;
-   }
-   pnode->next = newNode;
- }
-```
+		   while(pnode->next != NULL)
+		   {
+			 pnode = pnode->next;
+		   }
+		   pnode->next = newNode;
+		 }
+		```
 
 ## 4일차
+- 연결리스트 이어서
+
+	- 출력함수
+	```C
+	typedef struct
+	{
+		node *head;
+	}headNode;
+
+	headNode* createHeadNode(void)
+	{
+		headNode* head = (headNode*)malloc(sizeof(headNode));
+		return head;
+	}
+	void showNode(headNode* pnode)      // 출력함수
+	{
+		node* curr = pnode->head;
+
+		while(curr != NULL)
+		{
+			printf("%d\n", curr->data);
+			curr = curr->next;
+		}
+	}
+	```
+
+	- 노드 소멸
+		- malloc 함수를 통해 메모리를 동적할당 받았기 때문에 노드를 삭제하기 위해서는 메모리 해제가 필요
+		- free() 함수를 통해서
+	```C
+	void allFreeNode(headNode* pnode)   // 전체 메모리 해제
+	{
+		node* curr = pnode->head; 
+
+		while(curr != NULL)
+		{
+			pnode->head = curr->next;
+			free(curr);		// free() : 힙영역에서 메모리공간 반환
+			curr = pnode->head;
+		}
+	}
+	```
