@@ -103,3 +103,5 @@ void rear_addNode(node* pnode, int pdata) // 후위삽입
    pnode->next = newNode;
  }
 ```
+
+## 4일차
