@@ -100,7 +100,7 @@
 	headNode* createHeadNode(void)	// 입력 x 출력 o (type : headNode)
 	{
 		headNode* head = (headNode*)malloc(sizeof(headNode));	// 메모리공간을 동적 할당. (headNode*) : 형변환
-																// sizeof(headNode) : haedNode 자료형의 크기를 구한다.
+										// sizeof(headNode) : haedNode 자료형의 크기를 구한다.
 		return head;	// 출력이 있으므로 리턴 필수★★★
 	}
 	```
