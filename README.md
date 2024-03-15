@@ -78,7 +78,7 @@
 	- 서로 다른 물리적 위치에 있는 노드가 연결되어 만들어진 리스트
 	- 각 노드에 저장된 다음 노드에 대한 주소값을 통해 연결
 	
-	![노드](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024-2024/main/images/node.png)
+	![노드](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/node.png)
 	![노드설명](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024-2024/main/images/node01.png)
 	
 	- 연결리스트 노드
