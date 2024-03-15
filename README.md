@@ -113,7 +113,7 @@
 		```C
 		void pre_addNode(node* pnode, int _data)        // 전위삽입
 		{
-			node* newNode = (node*)malloc(sizeof(node));	// node크기만큼의 메모리 공간 동적 할당받아 포인터변수 newNode에 저장
+			node* newNode = (node*)malloc(sizeof(node));	// 노드 생성. node크기만큼의 메모리 공간 동적 할당받아 포인터변수 newNode에 저장
 			newNode->data = _data;
 			newNode->next = pnode->next;
 			pnode->next = newNode;
@@ -130,17 +130,18 @@
 		```C
 		void rear_addNode(node* pnode, int pdata) // 후위삽입
 		 {
-		   node* newNode = (node*)malloc(sizeof(node));
+		   node* newNode = (node*)malloc(sizeof(node));		// 노드 생성
 		   newNode->data = pdata;
 		   newNode->next = NULL;
 
-		   while(pnode->next != NULL)
+		   while(pnode->next != NULL)		// pnode의 다음값이 NULL일 때까지
 		   {
-			 pnode = pnode->next;
+			 pnode = pnode->next;	// pnode를 다음값으로 지정(이동)
 		   }
-		   pnode->next = newNode;
+		   pnode->next = newNode;	// 테일노드 다음 노드에 새로생성한 노드를 연결
 		 }
 		```
+		
 
 ## 4일차
 - 연결리스트 이어서
