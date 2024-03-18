@@ -98,19 +98,22 @@ node* seachNode(headNode* pnode, int locate)
 {
    node* curr = (node*)malloc(sizeof(node));
    curr = pnode->head;
-   while(curr != NULL)
-   {
-     if(--locate > 0)
-     {
-       curr = curr->next;
-     }
-   }
+   while(curr != NULL && locate > 1)
+	{
+    	curr = curr->next;
+		locate--;
+	}
 
-   if(locate > 0)
+   if(locate > 0 || curr == NULL)
    {
-     printf("노드가 없습니다.\n");
-     return pnode;
+    	printf("노드가 없습니다.\n");
+    	return  NULL;
    }
+    else
+    {
+        printf("검색한 노드를 찾았습니다.\n");
+        return curr; // 해당 노드 반환
+    }
 }
 
 void main()
