@@ -5,7 +5,7 @@
 #define TRUE 1   // true, false를 지원하지 않기 때문에 직접 정의
 #define FALSE 0
 
-int stack[STACK_SIZE];  // stack이라는 자료구조(배열)
+int stack[STACK_SIZE];  // 자료구조 : int 타입의 자료를 STACK_SIZE만큼 담을 수 있는 스택배열 생성
 int top = -1;
 
 // 함수 선언
