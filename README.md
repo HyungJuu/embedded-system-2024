@@ -57,7 +57,7 @@
 	- mv : 파일이동, 수정  
 		&rarr; ex) mv test01.c test02.c  -->  test01.c를 test02.c로 수정(변경)
 	- cp : 파일 복사  
-		&rarr; ex) cp test03.c test.c  -->  test.c를 복사하여 test03.c를 생성
+		&rarr; ex) cp test.c test03.c  -->  test.c를 복사하여 test03.c를 생성
 		
 - 입력과 출력
 	- printf : 출력
@@ -173,3 +173,8 @@
 		}
 	}
 	```
+	
+## 5일차
+- 연결리스트 이어서
+	- 노드 검색
+	
