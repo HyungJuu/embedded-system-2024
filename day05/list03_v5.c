@@ -15,7 +15,7 @@ typedef struct
 headNode* createHeadNode(void)
 {
     headNode* head = (headNode*)malloc(sizeof(headNode));
-	// if(h != NULL) h->head = NULL;
+	if(head != NULL) head->head = NULL;
     return head;
 }
 
@@ -36,38 +36,17 @@ void rear_addNode(headNode* pnode, int pdata) // 후위삽입
 	newNode->data = pdata;
 	newNode->next = NULL;
 
-	node* curr = pnode->head;
-
-	while(curr->next != NULL)
-	{
-  		curr = curr->next;
-   	}
-	curr->next = newNode;
-	// if(newNode != NULL)
-	// {
-	// 	newNode->data = _data;
-	// 	newNode->next = NULL;
-	// 	if(pnode->head == NULL) pnode->head = newNode;		// 첫번째 노드로 삽입
-	// 	else{		// 첫번째 노드가 아니면
-	// 		node* curr = phead ->head;	// 마지막노드를 찾는다.
-	// 		while (curr->next != NULL)
-	// 		{
-	// 			curr = curr->next;
-	// 		}
-	// 		curr->next = newNode;
-	// 	}
-	// }
-
-	// newNode->data = pdata;
-	// newNode->next = NULL;
-
-	// node* curr = pnode->head;
-
-	// while(curr->next != NULL)
-	// {
-  	// 	curr = curr->next;
-   	// }
-	// curr->next = newNode;
+	if (pnode->head == NULL)	// 첫번째 노드로 삽입
+		pnode->head = newNode;
+    else	// 첫번째 노드가 아니면
+    {
+        node* curr = pnode->head;	// 마지막노드를 찾는다.
+        while (curr->next != NULL)
+        {
+            curr = curr->next;
+        }
+        curr->next = newNode;
+	}
 }
 
 void showNode(headNode* pnode)      // 출력함수
@@ -94,11 +73,11 @@ void allFreeNode(headNode* pnode)   // 전체 메모리 해제
     // free(pnode);
 }
 
-node* seachNode(headNode* pnode, int locate)
+node* searchNode(headNode* pnode, int locate)
 {
    node* curr = (node*)malloc(sizeof(node));
    curr = pnode->head;
-   while(curr != NULL && locate > 1)
+   while(curr != NULL && locate > 0)
 	{
     	curr = curr->next;
 		locate--;
@@ -142,8 +121,8 @@ void main()
 	
 	//curr = head->next;
 
-    printf("*****노드 삭제*****\n");
-    allFreeNode(head);
+    // printf("*****노드 삭제*****\n");
+    // allFreeNode(head);
 
     /*
 	printf("*****노드 삭제*****\n");
@@ -156,7 +135,10 @@ void main()
 	free(head);
     */
 
-   printf("*****노드 검색*****\n");
-   seachNode(head, 3);
+	printf("*****노드 검색*****\n");
+	node* searchedNode = searchNode(head, 3);
+	if(searchedNode != NULL)
+		printf("검색한 노드의 데이터 => %d\n", searchedNode->data);
 
+	// return 0;
 }

@@ -177,9 +177,38 @@
 ## 5일차
 - 연결리스트 이어서
 	- 노드 검색
-	
-- 배열
+		- N번째에 노드가 있는 경우
+		- N번째에 노드가 없는 경우
+	```C
+	node* searchNode(headNode* pnode, int locate)
+	{
+	   node* curr = (node*)malloc(sizeof(node));
+	   curr = pnode->head;
+	   while(curr != NULL && locate > 0)
+		{
+			curr = curr->next;
+			locate--;
+		}
 
+	   if(locate > 0 || curr == NULL)
+	   {
+			printf("노드가 없습니다.\n");
+			return  NULL;
+	   }
+		else
+		{
+			printf("검색한 노드를 찾았습니다.\n");
+			return curr; // 해당 노드 반환
+		}
+	}
+	```
+	
+	- 자료구조
+		- Stack(후입선출 : LIFO)
+		- Queue(선입선출 : FIFO)  
+	&rarr; rear : 입구  
+	&rarr; front : 출구
+	
 
 ## 6일차
 - 큐(순차 자료구조)
@@ -188,8 +217,21 @@
 	- printQueue()
 	
 	
-- makefile : 컴파일
+- makefile : 컴파일(실행파일 생성)  
+	&rarr; c++ 에서 파일분할(헤더파일, 소스파일)과 비슷함
+	
+	```makefile
+	test: main.o inputf.o printf.o
+		gcc -o test main.c printf.c inputf.c
 
-	- c++ 에서 파일분할과 비슷함
+	main.o: main.c
+		gcc -c main.c
 
-- .o : 오브젝트 파일
+	inputf.o: inputf.c
+		gcc -c inputf.c
+
+	printf.o: printf.c
+		gcc -c printf.c
+	```
+	
+	- .o : 오브젝트 파일
