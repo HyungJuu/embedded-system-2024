@@ -16,6 +16,9 @@ typedef struct
 queue* create();
 void enqueue(queue*, char);
 int dequeue(queue*);
+int isFull(queue*);
+int isEmpty(queue*);
+void printQueue(queue*);
 
 // 메인 함수
 void main()
@@ -26,9 +29,10 @@ void main()
     enqueue(q, 'C');
     enqueue(q, 'D');    // Overflow
 
-    printf("%c\n", q->queue[0]);
-    printf("%c\n", q->queue[1]);
-    printf("%c\n", q->queue[2]);
+    printQueue(q);
+    // printf("%c\n", q->queue[0]);
+    // printf("%c\n", q->queue[1]);
+    // printf("%c\n", q->queue[2]);
     //  printf("%c\n", q->queue[3]);    // Underflow
 }
 
@@ -46,9 +50,8 @@ queue* create()
 
 void enqueue(queue* enq, char data)
 {
-    if(enq->rear >= QSIZE - 1)
+    if(isFull(enq))
     {
-        printf("QUEUE Overflow!!\n");
         return;
     }
     enq->queue[++(enq->rear)] = data;
@@ -56,10 +59,40 @@ void enqueue(queue* enq, char data)
 
 int dequeue(queue* deq)
 {
-    if(deq->front == deq->rear)
+    if(isEmpty(deq))
     {
-        printf("QUEUE Underflow!!\n");
         return -1;
     }
     return deq->queue[++(deq->front)];
+}
+
+int isFull(queue* enq)
+{
+    if(enq->rear >= QSIZE -1)
+    {
+        printf("QUEUE Overflow!!\n");
+        return 1;
+    }
+    else return 0;
+}
+
+int isEmpty(queue* deq)
+{
+    if(deq->front == deq->rear)
+    {
+        printf("QUEUE Underflow!!\n");        
+        return 1;
+    }
+    else return 0;
+}
+
+// 출력함수
+void printQueue(queue* printQ)
+{
+    printf("현재 QUEUE의 데이터 => ");
+    for(int i = (printQ->front)++; i <= printQ->rear; i++ )
+    {
+        printf("%c ", printQ->queue[i]);
+    }
+    printf("\n");
 }
