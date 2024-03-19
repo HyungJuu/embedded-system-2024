@@ -225,6 +225,8 @@
 	&rarr; 반복되는 컴파일 작업을 자동화
 	&rarr; 수정된 소스파일만 컴파일 -> 재컴파일 시간 단축
 	
+	![makefile](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/makefile.png)
+	
 	```makefile
 	// main.o , inputf.o, printf.o 를 통해 test(실행파일) 생성
 	test: main.o inputf.o printf.o
