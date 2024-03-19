@@ -10,6 +10,9 @@ typedef struct STACK {
 
 // 함수 선언
 void push(stack*, int);
+int pop(stack*);
+int isFull(stack*);
+int isEmpty(stack*);
 
 // 메인 함수
 void main()
