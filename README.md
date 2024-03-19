@@ -216,11 +216,17 @@
 	- dequeue()
 	- printQueue()
 	
-	
-- makefile : 컴파일(실행파일 생성)  
-	&rarr; c++ 에서 파일분할(헤더파일, 소스파일)과 비슷함
+- make : 프로그램 빌드 도구  
+	&rarr; makefile 생성 후 make 컴파일 -> 실행은 ./
+
+- makefile
+	- 각각의 소스파일을 컴파일하여 오브젝트(Object)파일(.o)을 생성
+	- 생성한 오브젝트 파일을 하나로 묶어(링크과정) 실행파일 생성  
+	&rarr; 반복되는 컴파일 작업을 자동화
+	&rarr; 수정된 소스파일만 컴파일 -> 재컴파일 시간 단축
 	
 	```makefile
+	// main.o , inputf.o, printf.o 를 통해 test(실행파일) 생성
 	test: main.o inputf.o printf.o
 		gcc -o test main.c printf.c inputf.c
 
@@ -233,5 +239,3 @@
 	printf.o: printf.c
 		gcc -c printf.c
 	```
-	
-	- .o : 오브젝트 파일
