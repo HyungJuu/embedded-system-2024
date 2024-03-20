@@ -10,6 +10,7 @@ void main()
     if(fp == NULL)
     {
         fprintf(stderr, "Error");   // 파일입출력 : 입력(0), 출력(1), 에러(2)
+        exit(1);
     }
     fprintf(fp, "%s", msg);   // 파일로 출력
     printf("%s", msg);
