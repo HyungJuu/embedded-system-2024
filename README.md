@@ -283,35 +283,35 @@
 	- 파일 포인터
 	
 	- 모든 OS에서 사용가능한 함수
-		- fopen("파일명", "옵션")	-> 파일 열기
-			- 옵션 : 읽기(r), 쓰기(w), 추가(a)
+		- fopen("파일명", "옵션") -> 파일 열기
+			- 옵션 : 읽기(r), 쓰기(w), 추가(a)  
 		
-		- fprintf -> 파일안에 입출력
-			- exit() : 입력(0) 출력(1) 에러(2)
+		- fprintf() -> 파일 안에 문자열 출력
+			- exit() : 입력(0) 출력(1) 에러(2)  
 			
-		- fclose(); -> 파일 닫기
+		- fclose() -> 파일 닫기  
 		
 	- 리눅스에서 사용하는 함수(file02.c) 
 		- #include <fcntl.h> -> 파일 컨트롤 기능
-		- #include <unistd.h> -> 유닉스 C 컴파일러 헤더파일(윈도우 X)
+		- #include <unistd.h> -> 유닉스 C 컴파일러 헤더파일(윈도우 X)  
 
 		- open("파일명", "옵션") -> 파일 열기
-			- 옵션
-				- O_CREAT -> 파일이 존재하지 않으면 생성
-				- O_WRONLY -> 파일을 쓰기 전용으로 열기
-				- O_RDONLY -> 파일을 읽기 전용으로 열기
-				- O_RDWR -> 파일 읽기쓰기
+			- 옵션  
+				&rarr; O_CREAT : 파일이 존재하지 않으면 생성  
+				&rarr; O_WRONLY : 파일을 쓰기 전용으로 열기  
+				&rarr; O_RDONLY : 파일을 읽기 전용으로 열기  
+				&rarr; O_RDWR : 파일 읽기쓰기  
 		
-		- printf
+		- printf()  
+		  
 		- close() -> 파일을 닫기  
-			&rarr; 성공(0), 실패(-1) 반환
-		- file descriptor 
+			&rarr; 성공(0), 실패(-1) 반환  
+			
+		- file descriptor  
 		
-		- 파일에 데이터 쓰기
-			- write() : 쓰기 함수
-		- 파일에 저장된 데이터 읽기
-			- read() : 읽기 함수
-		
+		- write() : 파일에 데이터 쓰기
+		- read() : 파일에 저장된 데이터 읽기  
+		  
 	- 파일안의 내용 확인
 		- nano test.txt : 파일을 열어서 확인
 		- cat test.txt : 파일안의 내용 출력
