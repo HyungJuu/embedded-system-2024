@@ -222,7 +222,7 @@
 - makefile
 	- 각각의 소스파일을 컴파일하여 오브젝트(Object)파일(.o)을 생성
 	- 생성한 오브젝트 파일을 하나로 묶어(링크과정) 실행파일 생성  
-	&rarr; 반복되는 컴파일 작업을 자동화
+	&rarr; 반복되는 컴파일 작업을 자동화  
 	&rarr; 수정된 소스파일만 컴파일 -> 재컴파일 시간 단축
 	
 	![makefile](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/makefile.png)
@@ -241,3 +241,39 @@
 	printf.o: printf.c
 		gcc -c printf.c
 	```
+
+- 파일분할
+	- static : 전역변수로 설정
+	- extern : 다른 소스파일에 있는 변수와 함수를 가져다 쓸 수 있다  
+	&rarr; extern 자료형 전역변수명;  
+	&rarr; extern 반환값자료형 함수이름(매개변수 자료형)
+	
+	- 헤더파일과 소스파일
+		- 헤더파일(.h) -> 구조체 정의, 함수의 선언 작성
+		
+		```C
+		#ifndef 헤더파일명(대문자)_H
+		#define 헤더파일명(대문자)_H
+		
+		#endif
+		```
+		
+		- 소스파일(.c) -> 함수의 정의 작성
+		
+		```C
+		#include "헤더파일명"
+		```
+	
+## 7일차
+- 배열
+	- 버블탐색
+	- 배열의 크기 sizeof
+	
+	```C
+	int ary[] = {3, 5, 2, 4, 9, 8, 1};
+	int size = sizeof(ary)/sizeof(int);	// (7*4) / (1*4) = 7
+	// sizeof : 할당받는 메모리공간의 크기를 byte 단위로 출력
+	// sizeof(ary) : 배열안의 변수 수(7) * 변수의 자료형(int : 4) = 28
+	// sizeof(int) : int 자료형의 크기 : 4
+	```
+	- 이진탐색
