@@ -10,7 +10,7 @@ int main()
     int fd;
     char buf[] = "Let's go!\n";
 
-    fd = open("data.txt", O_CREAT | O_WRONLY | O_TRUNC);  // 파일이 없으면 생성, 쓰기 전용, 기존데이터 모두>
+    fd = open("data.txt", O_CREAT | O_WRONLY | O_TRUNC);  // 파일이 없으면 생성, 쓰기 전용, 기존데이터 모두 삭제
     if(fd == -1)
         error_handling("open() error!");
     printf("file descriptor : %d \n", fd);
