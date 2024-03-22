@@ -23,7 +23,7 @@ void main()
 
     if(strcmp(id, "kim") == 0 && strcmp(pwd, "1111") == 0)
     {
-        printf("<<로그인 성공>>\n");
+        printf("[로그인 성공]\n");
 
         fp = fopen("myinfo.txt", "r");
         if (fp == NULL)
@@ -32,7 +32,7 @@ void main()
         }
 
         // 파일내용 출력
-        printf("파일 내용:\n");
+        printf("[파일을 열람합니다]\n");
         while (fgets(myinfo, sizeof(myinfo), fp) != NULL)
         {
         printf("%s", myinfo);
