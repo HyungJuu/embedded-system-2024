@@ -319,7 +319,9 @@
 		- cat test.txt : 파일안의 내용 출력
 		
 ## 8일차
-- project
+- miniproject
+
+![miniproject](https://raw.githubusercontent.com/HyungJuu/embedded-system-2024/main/images/miniproject.png)
 
 ## 9일차
-- project
+- miniproject 이어서
