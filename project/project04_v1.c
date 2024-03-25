@@ -1,5 +1,6 @@
 /* 
-    도서검색 후 대여/반납 기능 추가하기 수정완료
+    같은 제목, 저자, 출판사 함께 출력
+    회원가입?
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -191,6 +192,7 @@ void search_T(node* head)
     printf("\n");
 
     node* temp = head;
+    int found = 0;
     while(temp != NULL)
     {
         if(strcmp(temp->title, STitle) == 0)
@@ -201,12 +203,16 @@ void search_T(node* head)
             printf(">> [저자 : %s]\n", temp->author);
             printf(">> [출판사 : %s]\n", temp->publisher);
             printf("\n");
-            return;
+
+            found = 1;
         }
         temp = temp->next;
     }
+    if(!found)
+    {
     printf("[도서를 찾을 수 없습니다.]\n");
     printf("\n");
+    }
 }
 
 // 방법 2 : 저자 검색
@@ -219,6 +225,7 @@ void search_A(node* head)
     printf("\n");
 
     node* temp = head;
+    int found = 0;
     while(temp != NULL)
     {
         if(strcmp(temp->author, SAuthor) == 0)
@@ -229,12 +236,16 @@ void search_A(node* head)
             printf(">> [저자 : %s]\n", temp->author);
             printf(">> [출판사 : %s]\n", temp->publisher);
             printf("\n");
-            return;
+
+            found = 1;
         }
         temp = temp->next;
     }
+    if(!found)
+    {
     printf("[도서를 찾을 수 없습니다.]\n");
     printf("\n");
+    }
 }
 
 // 방법 3 : 출판사 검색
@@ -247,6 +258,7 @@ void search_P(node* head)
     printf("\n");
 
     node* temp = head;
+    int found = 0;
     while(temp != NULL)
     {
         if(strcmp(temp->publisher, SPublisher) == 0)
@@ -257,12 +269,16 @@ void search_P(node* head)
             printf(">> [저자 : %s]\n", temp->author);
             printf(">> [출판사 : %s]\n", temp->publisher);
             printf("\n");
-            return;
+
+            found = 1;
         }
         temp = temp->next;
     }
+    if(!found)
+    {
     printf("[도서를 찾을 수 없습니다.]\n");
     printf("\n");
+    }
 }
 
 // 도서 대여

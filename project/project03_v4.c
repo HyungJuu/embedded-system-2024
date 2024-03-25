@@ -1,5 +1,6 @@
 /* 
     도서검색 후 대여/반납 기능 추가하기 수정완료
+    -> 도서번호를 입력해서 대여/반납
 */
 #include <stdio.h>
 #include <stdlib.h>
