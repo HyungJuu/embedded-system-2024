@@ -328,3 +328,6 @@
 
 ## 10일차
 - miniproject 이어서
+	- project01.c
+	- project02_v3.c
+	- project03_v5.c	/ project04_v1.c
