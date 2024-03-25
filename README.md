@@ -325,3 +325,6 @@
 
 ## 9일차
 - miniproject 이어서
+
+## 10일차
+- miniproject 이어서
