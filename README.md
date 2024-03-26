@@ -331,3 +331,21 @@
 	- project01.c
 	- project02_v3.c
 	- project03_v5.c	/ project04_v1.c
+
+## 11일차
+- miniproject 마지막(제출)
+	- Product Manager
+		- product manager.cpp
+
+	- file 입출력
+		- myinfo.txt
+		- project01.c
+
+	- linkedList
+		- ver1
+			- project02_ver1.c
+		- ver2
+			- makefile
+			- project02_ver2.c
+			- project02_ver2.h
+			- project02_ver2_main.c
