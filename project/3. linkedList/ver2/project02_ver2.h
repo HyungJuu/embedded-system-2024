@@ -1,7 +1,7 @@
 /* 
     File : project02_ver2.h
 
-    Created : 24-03-26
+    Created : 24-03-27
     Author : 김근아
 */
 #ifndef PROJECT_VER2_H
