@@ -1,102 +1,13 @@
 /* 
-    같은 제목, 저자, 출판사 함께 출력
-    대여중인 도서는 삭제할수 없도록
-    회원가입?
+    File : project02_ver2.c
+
+    Created : 24-03-26
+    Author : 김근아
 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#define SIZE 200
-
-typedef struct NODE // 구조체 생성 -> 필드
-{
-    int rental;
-    int booknum;
-    int bookcount;
-    char publisher[SIZE];
-    char title[SIZE];
-    char author[SIZE];
-    struct NODE *next;
-} node;
-
-node* bookAdd(node*);
-void bookSearch(node*);
-node* bookDelete(node*);
-void bookShow(node*);
-int bookSearchPrint();
-void search_T(node*);
-void search_A(node*);
-void search_P(node*);
-node* bookRental(node*, int);
-node* bookReturn(node*, int);
-void rentalselect(node*);
-
-void main() 
-{
-    int num;
-    node* head = NULL;  // NULL을 head라는 node타입 포인터변수에 저장
-    while(1)
-    {
-        printf("*****도서관리 프로그램*****\n");
-        printf("1. 도서등록 \n2. 도서검색 \n3. 도서삭제 \n4. 도서출력 \n0. 종료\n");
-        printf("---------------------------\n");
-        printf("* 번호 입력 >> ");
-        scanf("%d", &num);
-        printf("\n");
-        
-        switch(num)
-        {
-            case 1:
-                head = bookAdd(head);   // 도서등록 함수를 호출하여 head필드에 저장
-                break;
-
-            case 2:
-                while(1)
-                {
-                    switch(bookSearchPrint())   // 검색방법에 대한 함수에서 리턴한 값을 받음
-                    {
-                        case 1:
-                            search_T(head); // 제목을 검색할때의 함수 호출
-                            rentalselect(head);
-                            break;
-                        
-                        case 2:
-                            search_A(head); // 저자를 검색할 때의 함수 호출
-                            rentalselect(head);
-                            break;
-
-                        case 3:
-                            search_P(head); // 출판사를 검색할 때의 함수 호출
-                            rentalselect(head);
-                            break;
-                        
-                        default:
-                            printf("[잘못된 입력입니다. 번호(1~3)를 다시 입력하세요.]\n\n");
-                            continue;
-                    }
-                    break;
-                }
-                break;
-                
-            case 3:
-                head = bookDelete(head);    // 삭제후의 변경된 시작점을 받아서 head로 저장
-                break;
-
-            case 4:
-                bookShow(head);
-                break;
-
-            case 0:
-                printf("[프로그램을 종료합니다.]\n");
-                exit(1);
-                break;
-
-            default:
-                printf("[잘못된 입력입니다. 번호(0~4)를 다시 입력하세요.]\n\n");
-        }
-    }
-}
+#include "project02_ver2.h"
 
 // 대여 / 반납 선택
 void rentalselect(node* head)
