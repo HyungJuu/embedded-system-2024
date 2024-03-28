@@ -349,3 +349,6 @@
 			- project02_ver2.c
 			- project02_ver2.h
 			- project02_ver2_main.c
+
+## 12일차
+- miniproject 끝
